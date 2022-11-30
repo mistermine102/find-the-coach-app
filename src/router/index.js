@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import TheNavbar from "../components/TheNavbar.vue"
+import CoachesPage from '../pages/CoachesPage.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [{path: "/nav", component: TheNavbar}]
+  history: createWebHistory(),
+  routes: [{path: "/coaches", component: CoachesPage}]
 })
 
 export default router
