@@ -1,7 +1,11 @@
 <template>
   <base-container>
     <base-button @click="fetchCoaches" mode="alt">Refresh</base-button>
-    <single-coach v-for="coach in allCoaches" :key="coach.id" :coach="coach"></single-coach>
+    <single-coach
+      v-for="coach in allCoaches"
+      :key="coach.id"
+      :coach="coach"
+    ></single-coach>
   </base-container>
 </template>
 
@@ -21,6 +25,9 @@ export default {
     allCoaches() {
       return this.$store.getters["coach/allCoaches"];
     },
+  },
+  mounted() {
+    this.fetchCoaches();
   },
 };
 </script>

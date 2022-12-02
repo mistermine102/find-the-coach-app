@@ -4,15 +4,33 @@
       <h2>Find your coach</h2>
       <form>
         <div class="form-control">
-          <input type="checkbox" name="spec" id="frontend" value="frontend" v-model="specs" />
+          <input
+            type="checkbox"
+            name="spec"
+            id="frontend"
+            value="frontend"
+            v-model="specs"
+          />
           <label for="frontend">Frontend</label>
         </div>
         <div class="form-control">
-          <input type="checkbox" name="spec" id="backend" value="backend" v-model="specs" />
+          <input
+            type="checkbox"
+            name="spec"
+            id="backend"
+            value="backend"
+            v-model="specs"
+          />
           <label for="backend">Backend</label>
         </div>
         <div class="form-control">
-          <input type="checkbox" name="spec" id="career" value="career" v-model="specs" />
+          <input
+            type="checkbox"
+            name="spec"
+            id="career"
+            value="career"
+            v-model="specs"
+          />
           <label for="career">Career</label>
         </div>
       </form>

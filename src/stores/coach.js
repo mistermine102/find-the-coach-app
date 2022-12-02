@@ -10,7 +10,9 @@ export default {
   },
   getters: {
     allCoaches(state) {
-      return state.allCoaches;
+      if (state.filters.length < 1) {
+        return state.allCoaches;
+      }
     },
   },
   mutations: {
@@ -18,15 +20,17 @@ export default {
       state.allCoaches = payload;
     },
     filterCoaches(state, payload) {
+      const filteredCoaches = [];
       for (let coach of state.allCoaches) {
         if (
           payload.every((el) => {
             return coach.badges.includes(el);
           })
         ) {
-          console.log(coach.name);
+          filteredCoaches.push(coach);
         }
       }
+      state.allCoaches = filteredCoaches;
     },
   },
   actions: {
