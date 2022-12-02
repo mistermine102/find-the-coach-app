@@ -5,7 +5,7 @@
     <base-badge v-for="(badge, index) in coach.badges" :key="index" :mode="badge"></base-badge>
     <div class="buttons-container">
       <base-button>Contact</base-button>
-      <base-button>View Details</base-button>
+      <base-button @click="viewDetails">View Details</base-button>
     </div>
   </div>
 </template>
@@ -13,6 +13,11 @@
 <script>
 export default {
   props: ["coach"],
+  methods: {
+    viewDetails() {
+      this.$router.push(`/coaches/${this.coach.id}`)
+    }
+  }
 };
 </script>
 

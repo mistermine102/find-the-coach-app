@@ -6,6 +6,7 @@ export default {
     return {
       allCoaches: [],
       filters: [],
+      coachId: 3,
     };
   },
   getters: {
@@ -13,6 +14,11 @@ export default {
       if (state.filters.length < 1) {
         return state.allCoaches;
       }
+    },
+    singleCoach(state) {
+      const foundCoach = state.allCoaches.find((el) => el.id === state.coachId);
+      console.log(foundCoach)
+      return foundCoach;
     },
   },
   mutations: {
