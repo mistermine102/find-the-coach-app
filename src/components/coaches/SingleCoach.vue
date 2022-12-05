@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h2>{{coach.name}}</h2>
-    <p>${{coach.rate}}/hour</p>
+    <h2>{{ coach.name }}</h2>
+    <p>${{ coach.rate }}/hour</p>
     <base-badge v-for="(badge, index) in coach.badges" :key="index" :mode="badge"></base-badge>
     <div class="buttons-container">
       <base-button>Contact</base-button>
@@ -15,9 +15,9 @@ export default {
   props: ["coach"],
   methods: {
     viewDetails() {
-      this.$router.push(`/coaches/${this.coach.id}`)
-    }
-  }
+      this.$router.push(`/coaches/${this.coach.id}`);
+    },
+  },
 };
 </script>
 

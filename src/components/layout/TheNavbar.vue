@@ -1,20 +1,14 @@
 <template>
   <header>
     <h1>Find a Coach</h1>
-    {{$store.getters.message}}
     <ul>
       <li><router-link to="/coaches">All coaches</router-link></li>
-      <li><router-link to="/">Requests</router-link></li>
+      <li><router-link to="/requests">Requests</router-link></li>
     </ul>
   </header>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
-
 header {
   background-color: rgb(68, 61, 173);
   display: flex;
@@ -33,7 +27,7 @@ a {
   border-bottom: 2px solid transparent;
 }
 
-a:hover  {
+a:hover {
   color: white;
   border-bottom: 2px solid white;
 }
