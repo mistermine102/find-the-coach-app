@@ -18,7 +18,7 @@ const coaches = [
 ];
 
 Coach.insertMany(coaches).then((res) => console.log(res));
+
 Coach.find()
   .then((res) => console.log(res))
   .catch((e) => console.log(e));
-

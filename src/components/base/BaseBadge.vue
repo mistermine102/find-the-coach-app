@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
 div {
-  border-radius: 2rem;
+  border-radius: 1rem;
   padding: 0.5rem 1rem;
   color: white;
   display: inline-block;

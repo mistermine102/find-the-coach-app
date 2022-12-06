@@ -1,7 +1,5 @@
 <template>
-  <base-container>
-    <coach-details></coach-details>
-  </base-container>
+  <coach-details></coach-details>
 </template>
 
 <script>

@@ -1,20 +1,22 @@
 <template>
   <base-container>
-    <base-button mode="alt">Refresh</base-button>
-    <single-coach
-      v-for="coach in allCoaches"
-      :key="coach.id"
-      :coach="coach"
-    ></single-coach>
+    <div class="controls">
+      <base-button mode="alt">Refresh</base-button>
+      <base-button @click="$router.push('/register')">Register as a couch</base-button>
+    </div>
+
+    <single-coach v-for="coach in allCoaches" :key="coach.id" :coach="coach"></single-coach>
   </base-container>
 </template>
 
 <script>
+import BaseButton from "../base/BaseButton.vue";
 import SingleCoach from "./SingleCoach.vue";
 
 export default {
   components: {
     SingleCoach,
+    BaseButton,
   },
   computed: {
     allCoaches() {
@@ -25,7 +27,9 @@ export default {
 </script>
 
 <style scoped>
-button {
-  margin-bottom: 1rem;
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 </style>
