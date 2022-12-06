@@ -1,4 +1,5 @@
 <template>
+  <h2>Coaches details</h2>
   <coach-details></coach-details>
 </template>
 
