@@ -1,6 +1,5 @@
 <template>
   <h1>Coach Details</h1>
-  {{ allCoaches }}
 </template>
 
 <script>
@@ -19,14 +18,15 @@ export default {
     },
   },
   methods: {
-    fetchCoaches() {
-      this.$store.dispatch("coach/fetchCoaches");
-    },
+    findCoach() {
+      this.foundCoach = this.allCoaches.find()
+    }
   },
   created() {
-    this.fetchCoaches();
-    console.log(this.coachId);
-    console.log(this.allCoaches);
+    this.foundCoach = this.allCoaches.find(el => el.id === this.coachId)
+
+    console.log(this.foundCoach)
+
   },
 };
 </script>
