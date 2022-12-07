@@ -1,0 +1,9 @@
+<template>
+  <div>
+    <section>
+      <base-container> 
+        <h1>Contact</h1>
+      </base-container>
+    </section>
+  </div>
+</template>

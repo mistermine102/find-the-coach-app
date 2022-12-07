@@ -2,10 +2,18 @@
   <base-container>
     <div class="controls">
       <base-button mode="alt">Refresh</base-button>
-      <base-button @click="$router.push('/register')">Register as a couch</base-button>
+      <base-button @click="$router.push('/register')"
+        >Register as a couch</base-button
+      >
     </div>
 
-    <single-coach v-for="coach in allCoaches" :key="coach.id" :coach="coach"></single-coach>
+    <h2 v-if="allCoaches.length <= 0">No coaches found</h2>
+
+    <single-coach
+      v-for="coach in allCoaches"
+      :key="coach.id"
+      :coach="coach"
+    ></single-coach>
   </base-container>
 </template>
 
@@ -27,9 +35,17 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
 .controls {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 </style>
+

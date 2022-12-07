@@ -1,4 +1,3 @@
-import axios from "axios";
 
 export default {
   namespaced: true,
@@ -39,10 +38,31 @@ export default {
     filterCoaches(state, payload) {
       state.filters = payload;
     },
+    addNewCoach(state, payload) {
+
+      const newCoach = {
+        id: new Date().toISOString(),
+        name: payload.name,
+        description: payload.description,
+        rate: payload.rate,
+        badges: payload.specs
+      }
+
+      state.allCoaches.push(newCoach)
+    },
+    deleteCoach(state, payload) {
+      state.allCoaches = state.allCoaches.filter(el => el.id !== payload)
+    }
   },
   actions: {
     filterCoaches(context, payload) {
       context.commit("filterCoaches", payload);
     },
+    addNewCoach(context, payload) {
+      context.commit("addNewCoach", payload)
+    },
+    deleteCoach(context, payload) {
+      context.commit("deleteCoach", payload)
+    }
   },
 };

@@ -2,10 +2,14 @@
   <div class="container">
     <h2>{{ coach.name }}</h2>
     <p>${{ coach.rate }}/hour</p>
-    <base-badge v-for="(badge, index) in coach.badges" :key="index" :mode="badge"></base-badge>
+    <base-badge
+      v-for="(badge, index) in coach.badges"
+      :key="index"
+      :mode="badge"
+    ></base-badge>
     <div class="buttons-container">
-      <base-button>Contact</base-button>
-      <base-button @click="viewDetails">View Details</base-button>
+      <base-button mode="alt" @click="viewDetails">View Details</base-button>
+      <base-button @click="deleteCoach">Delete</base-button>
     </div>
   </div>
 </template>
@@ -16,6 +20,9 @@ export default {
   methods: {
     viewDetails() {
       this.$router.push(`/coaches/${this.coach.id}`);
+    },
+    deleteCoach() {
+      this.$store.dispatch("coach/deleteCoach", this.coach.id);
     },
   },
 };

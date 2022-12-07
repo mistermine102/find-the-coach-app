@@ -1,7 +1,10 @@
 <template>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
   <the-navbar></the-navbar>
   <router-view></router-view>
 </template>
@@ -31,5 +34,11 @@ a {
 section {
   width: 60%;
   margin: 2rem auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>
