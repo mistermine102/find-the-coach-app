@@ -1,9 +1,9 @@
 <template>
   <section>
     <base-container>
-      <h1>Register as a couch</h1>
+      <h1 class="form-header">Register as a couch</h1>
 
-      <form @submit.prevent="addNewCoach">
+      <form class="base-form" @submit.prevent="addNewCoach">
         <div class="form-field">
           <input :class="{ inValid: !name.isValid }" type="text" name="name" id="name" placeholder="Name" v-model.trim="name.value" autocomplete="off" />
           <p v-if="!name.isValid" class="validation-info">Enter your name</p>
@@ -102,71 +102,10 @@ export default {
   },
 };
 </script>
-
 <style scoped>
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.validation-info {
-  color: rgb(255, 70, 70);
-}
-.inValid {
-  border: 2px solid rgb(255, 170, 170);
-}
-
-form {
-  width: 30%;
-  margin: auto;
-}
-
-form input,
-form textarea {
-  padding: 0.5rem;
-  border: 1px solid rgb(175, 175, 175);
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  resize: none;
-  outline: none;
-}
-
-input:focus-visible,
-textarea:focus-visible {
-  background: rgba(0, 0, 0, 0.025);
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  margin-left: 0.5rem;
-}
-.form-control {
-  display: inline-block;
-  margin: 0.5rem 0;
-}
-
-.form-control:last-of-type {
-  margin-bottom: 0;
-}
-
-p {
-  margin: 0;
-}
-
 label {
   margin-left: 5px;
   font-size: 1rem;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 500;
-  padding: 1rem;
-  text-align: center;
 }
 
 h2 {
