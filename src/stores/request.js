@@ -9,7 +9,7 @@ export default {
   //methods: {},
   actions: {
     addRequest(context, payload) {
-      console.log(payload)
+      console.log()
       context.commit("addRequest", payload)
     },
   },
