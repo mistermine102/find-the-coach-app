@@ -1,4 +1,5 @@
 export default {
+  namespaced: true,
   state() {
     return {
       requests: [],
@@ -6,5 +7,10 @@ export default {
   },
   //getters: {},
   //methods: {},
-  //actions: {}
+  actions: {
+    addRequest(context, payload) {
+      console.log()
+      context.commit("addRequest", payload)
+    },
+  },
 };

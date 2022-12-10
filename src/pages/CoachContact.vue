@@ -5,8 +5,14 @@
         <h1 class="form-header">Contact</h1>
         <form @submit.prevent="submitForm" class="base-form">
           <div class="form-field">
-            <textarea cols="30" rows="10" v-model="message.value"></textarea>
-            <p v-if="!message.isValid" class="validation-info">Why would you sent an empty message?</p>
+            <textarea
+              cols="30"
+              rows="10"
+              v-model.trim="message.value"
+            ></textarea>
+            <p v-if="!message.isValid" class="validation-info">
+              Why would you sent an empty message?
+            </p>
           </div>
           <div class="button-container">
             <base-button>Send a message</base-button>
@@ -29,8 +35,15 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log(this.message.value);
-    },
+      this.message.isValid = true;
+
+      if (!this.message.value) {
+        this.message.isValid = false;
+        return;
+      }
+
+      this.$store.dispatch("request/addRequest", this.meassage);
+    }, 
   },
 };
 </script>
