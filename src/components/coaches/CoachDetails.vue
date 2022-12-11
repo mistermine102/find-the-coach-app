@@ -1,30 +1,20 @@
 <template>
   <section>
-    <base-container>
+    <base-container v-if="foundCoach">
       <h2>{{ foundCoach.name }}</h2>
       <div class="badges">
-        <base-badge
-          v-for="badge in foundCoach.badges"
-          :mode="badge"
-          :key="badge"
-        ></base-badge>
+        <base-badge v-for="badge in foundCoach.badges" :mode="badge" :key="badge"></base-badge>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        asperiores atque illum deleniti quibusdam, adipisci placeat non numquam
-        quisquam recusandae laudantium repudiandae quam nemo accusamus
-        perspiciatis architecto iste dolores excepturi.
-      </p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores atque illum deleniti quibusdam, adipisci placeat non numquam quisquam recusandae laudantium repudiandae quam nemo accusamus perspiciatis architecto iste dolores excepturi.</p>
       <h3>
         <span>{{ foundCoach.rate }}$</span>/hour
       </h3>
 
       <div class="controls">
-        <base-button @click="$router.push(`/coaches/${foundCoach.id}/contact`)"
-          >Contact</base-button
-        >
+        <base-button @click="$router.push(`/coaches/${foundCoach.id}/contact`)">Contact</base-button>
       </div>
     </base-container>
+    <base-container v-else> <p>Sorry can't find coach with id of {{coachId}}</p> </base-container>
   </section>
 </template>
 

@@ -2,18 +2,12 @@
   <base-container>
     <div class="controls">
       <base-button mode="alt">Refresh</base-button>
-      <base-button @click="$router.push('/register')"
-        >Register as a couch</base-button
-      >
+      <base-button @click="$router.push('/register')">Register as a couch</base-button>
     </div>
 
     <h2 v-if="allCoaches.length <= 0">No coaches found</h2>
 
-    <single-coach
-      v-for="coach in allCoaches"
-      :key="coach.id"
-      :coach="coach"
-    ></single-coach>
+    <single-coach v-for="coach in allCoaches" :key="coach.id" :coach="coach"></single-coach>
   </base-container>
 </template>
 
@@ -30,6 +24,9 @@ export default {
     allCoaches() {
       return this.$store.getters["coach/allCoaches"];
     },
+  },
+  beforeMount() {
+    this.$store.dispatch("coach/resetFilters");
   },
 };
 </script>
@@ -48,4 +45,3 @@ h2 {
   margin-bottom: 2rem;
 }
 </style>
-
