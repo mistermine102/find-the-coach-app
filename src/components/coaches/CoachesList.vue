@@ -34,7 +34,6 @@ export default {
     },
   },
   beforeMount() {
-    this.fetchCoaches();
     this.$store.dispatch("coach/resetFilters");
   },
 };
