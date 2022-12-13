@@ -1,6 +1,11 @@
 <template>
   <div>
-    <slot></slot>
+    <p class="upper-text">
+      <slot name="upper-text"></slot>
+    </p>
+    <p class="message">
+      <slot name="message"></slot>
+    </p>
   </div>
 </template>
 
@@ -10,7 +15,7 @@ div {
   border: 1px solid rgb(206, 206, 206);
   margin: 1rem 0;
 }
-.description {
+.message {
   font-size: 1.2rem;
   color: aquamarine;
 }

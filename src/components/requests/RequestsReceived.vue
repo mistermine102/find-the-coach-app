@@ -1,8 +1,8 @@
 <template>
   <request-item>
-    <p class="description">
-        Hello World
-    </p>
+    <template #:upper-text>
+
+    </template>
   </request-item>
 </template>
 <script>
@@ -12,5 +12,9 @@ export default {
   components: {
     RequestItem,
   },
+  computed: {
+    requests: {}
+  }
 };
 </script>
+

@@ -1,7 +1,7 @@
 <template>
   <base-container>
     <div class="controls">
-      <base-button mode="alt">Refresh</base-button>
+      <base-button mode="alt" @click="fetchCoaches">Refresh</base-button>
       <base-button v-if="!currentUser" @click="$router.push('/register')">Register as a couch</base-button>
     </div>
 
@@ -28,7 +28,13 @@ export default {
       return this.$store.getters.currentUser;
     },
   },
+  methods: {
+    fetchCoaches() {
+      this.$store.dispatch("coach/fetchCoaches");
+    },
+  },
   beforeMount() {
+    this.fetchCoaches();
     this.$store.dispatch("coach/resetFilters");
   },
 };

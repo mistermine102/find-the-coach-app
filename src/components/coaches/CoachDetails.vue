@@ -14,7 +14,9 @@
         <base-button @click="$router.push(`/coaches/${foundCoach.id}/contact`)">Contact</base-button>
       </div>
     </base-container>
-    <base-container v-else> <p>Sorry can't find coach with id of {{coachId}}</p> </base-container>
+    <base-container v-else>
+      <p>Sorry can't find coach with id of {{ coachId }}</p>
+    </base-container>
   </section>
 </template>
 
@@ -33,7 +35,8 @@ export default {
       return this.$route.params.id;
     },
   },
-  created() {
+  async created() {
+    await this.$store.dispatch("coach/fetchCoaches");
     this.foundCoach = this.allCoaches.find((el) => el.id === this.coachId);
   },
 };
