@@ -88,21 +88,13 @@ export default {
   },
   methods: {
     addNewCoach() {
-      if (
-        this.name ||
-        this.description ||
-        this.rate ||
-        this.specs.length === 0
-      ) {
-        const newCoach = {
-          name: this.name,
-          description: this.description,
-          rate: this.rate,
-          specs: this.specs,
-        };
-      } else {
-        alert("NIe");
-      }
+      const newCoach = {
+        name: this.name,
+        description: this.description,
+        rate: this.rate,
+        specs: this.specs,
+      };
+
       this.$store.dispatch("coach/addNewCoach", newCoach);
 
       this.$router.push("/coaches");
