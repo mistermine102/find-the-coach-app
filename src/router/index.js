@@ -4,8 +4,7 @@ import CoachesPage from "../pages/CoachesPage.vue";
 import CoachDetailsPage from "../pages/CoachDetailsPage.vue";
 import RequestsPage from "../pages/RequestsPage.vue";
 import CoachRegister from "../pages/CoachRegister.vue";
-import CoachContact from '../pages/CoachContact.vue'
-
+import CoachContact from "../pages/CoachContact.vue";
 
 const router = createRouter({
   history: createWebHistory(),

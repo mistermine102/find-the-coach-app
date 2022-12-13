@@ -7,6 +7,22 @@ const store = createStore({
     coach: CoachModule,
     request: RequestModule,
   },
+  state() {
+    return {
+      currentUser: null,
+    };
+  },
+  getters: {
+    currentUser(state) {
+      if (state.currentUser) {
+        return state.currentUser;
+      } else {
+        return false;
+      }
+    },
+  },
+  mutations: {},
+  actions: {},
 });
 
 export default store;

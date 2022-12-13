@@ -1,19 +1,16 @@
 <template>
   <div>
-    <request-item v-for="request in requests" :receiverId="request.receiverId" :message="request.message" :key="request.id"></request-item>
+    <requests-received></requests-received>
   </div>
 </template>
 <script>
-import RequestItem from "./RequestItem.vue";
+import RequestsSent from "./RequestsSent.vue";
+import RequestsReceived from "./RequestsReceived.vue";
 
 export default {
   components: {
-    RequestItem,
-  },
-  computed: {
-    requests() {
-      return this.$store.getters["request/requests"];
-    },
+    RequestsReceived,
+    RequestsSent,
   },
 };
 </script>

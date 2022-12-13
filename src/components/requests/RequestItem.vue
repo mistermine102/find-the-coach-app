@@ -1,28 +1,8 @@
 <template>
   <div>
-    <p>
-      From you to <router-link :to="`/coaches/${receiverId}`">{{ coach }}</router-link>
-    </p>
-    <p class="description">{{ message }}</p>
+    <slot></slot>
   </div>
 </template>
-
-<script>
-export default {
-  props: ["message", "receiverId"],
-  computed: {
-    coach() {
-      const coaches = this.$store.getters["coach/allCoaches"];
-      const coach = coaches.find((el) => el.id === this.receiverId);
-      if (coach) {
-        return coach.name;
-      } else {
-        return "Sorry, can't find that coach";
-      }
-    },
-  },
-};
-</script>
 
 <style scoped>
 div {
@@ -32,6 +12,7 @@ div {
 }
 .description {
   font-size: 1.2rem;
+  color: aquamarine;
 }
 
 a,
@@ -39,5 +20,4 @@ a:visited {
   font-weight: 700;
   color: rgb(0, 0, 0);
 }
-
 </style>
