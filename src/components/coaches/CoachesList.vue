@@ -26,6 +26,7 @@ export default {
     },
   },
   beforeMount() {
+    this.$store.dispatch("coach/fetchCoaches")
     this.$store.dispatch("coach/resetFilters");
   },
 };
