@@ -6,11 +6,41 @@ const Coach = require("./models/coach");
 const { json } = require("express");
 
 const coaches = [
-  { id: "1", name: "Maximillian Schwarzmuller", badges: ["frontend", "backend", "career"], rate: 40 },
-  { id: "2", name: "Vilhelm Kyōko", badges: ["career", "backend"], rate: 26 },
-  { id: "3", name: "Dominique Jena", badges: ["frontend"], rate: 20 },
-  { id: "4", name: "Eros Tyra", badges: ["backend"], rate: 18 },
-  { id: "5", name: "Luiz Mahir", badges: ["frontend", "career"], rate: 30 },
+  {
+    id: "1",
+    name: "Maximillian Schwarzmuller",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores atque illum deleniti quibusdam, adipisci placeat non numquam quisquam recusandae laudantium repudiandae quam nemo accusamus perspiciatis architecto iste dolores excepturi.",
+    badges: ["frontend", "backend", "career"],
+    rate: 40,
+  },
+  {
+    id: "2",
+    name: "Vilhelm Kyōko",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores atque illum deleniti quibusdam, adipisci placeat non numquam quisquam recusandae laudantium repudiandae quam nemo accusamus perspiciatis architecto iste dolores excepturi.",
+    badges: ["career", "backend"],
+    rate: 26,
+  },
+  {
+    id: "3",
+    name: "Dominique Jena",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores atque illum deleniti quibusdam, adipisci placeat non numquam quisquam recusandae laudantium repudiandae quam nemo accusamus perspiciatis architecto iste dolores excepturi.",
+    badges: ["frontend"],
+    rate: 20,
+  },
+  {
+    id: "4",
+    name: "Eros Tyra",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores atque illum deleniti quibusdam, adipisci placeat non numquam quisquam recusandae laudantium repudiandae quam nemo accusamus perspiciatis architecto iste dolores excepturi.",
+    badges: ["backend"],
+    rate: 18,
+  },
+  {
+    id: "5",
+    name: "Luiz Mahir",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores atque illum deleniti quibusdam, adipisci placeat non numquam quisquam recusandae laudantium repudiandae quam nemo accusamus perspiciatis architecto iste dolores excepturi.",
+    badges: ["frontend", "career"],
+    rate: 30,
+  },
 ];
 
 //mongoose
