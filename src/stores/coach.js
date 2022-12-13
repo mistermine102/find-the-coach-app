@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
   namespaced: true,
   state() {
@@ -68,5 +70,13 @@ export default {
     resetFilters(context) {
       context.commit("resetFilters");
     },
+    async fetchCoaches(context) {
+      try {
+        const data = await axios.get("http://localhost:3000")
+        console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
   },
 };
