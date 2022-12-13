@@ -16,7 +16,8 @@ header {
   padding: 1rem 5rem;
 }
 
-h1 > a, h1 > a:hover{
+h1 > a,
+h1 > a:hover {
   color: white;
   border: none;
 }

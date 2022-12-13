@@ -9,7 +9,6 @@ export default {
         { id: "4", name: "Eros Tyra", badges: ["backend"], rate: 18 },
         { id: "5", name: "Luiz Mahir", badges: ["frontend", "career"], rate: 30 },
       ],
-      selectedCoach: null,
       filters: [],
     };
   },
@@ -38,15 +37,7 @@ export default {
       state.filters = payload;
     },
     addNewCoach(state, payload) {
-      const newCoach = {
-        id: new Date().toISOString(),
-        name: payload.name,
-        description: payload.description,
-        rate: payload.rate,
-        badges: payload.specs,
-      };
-
-      state.allCoaches.push(newCoach);
+      state.allCoaches.push(payload);
     },
     deleteCoach(state, payload) {
       state.allCoaches = state.allCoaches.filter((el) => el.id !== payload);
@@ -60,7 +51,17 @@ export default {
       context.commit("filterCoaches", payload);
     },
     addNewCoach(context, payload) {
-      context.commit("addNewCoach", payload);
+      const newCoach = {
+        id: new Date().toISOString(),
+        name: payload.name,
+        description: payload.description,
+        rate: payload.rate,
+        badges: payload.specs,
+      };
+
+      context.rootState.currentUser = newCoach.id;
+
+      context.commit("addNewCoach", newCoach);
     },
     deleteCoach(context, payload) {
       context.commit("deleteCoach", payload);

@@ -48,7 +48,7 @@ section {
   outline: none;
 }
 
-.base-form .button-container {
+.button-container {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
@@ -58,7 +58,7 @@ section {
   color: rgb(255, 70, 70);
 }
 .base-form .inValid {
-  border: 2px solid rgb(255, 170, 170);
+  border: 1px solid rgb(255, 0, 0);
 }
 
 input::-webkit-outer-spin-button,
