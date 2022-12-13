@@ -114,8 +114,7 @@ export default {
   },
   methods: {
     addNewCoach() {
-      this.$store.dispatch("coach/addNewCoach", newCoach);
-
+      
       this.name.isValid = true;
       this.description.isValid = true;
       this.rate.isValid = true;
