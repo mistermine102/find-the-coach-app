@@ -1,18 +1,15 @@
 <template>
   <div>
     <section>
-      <base-container>
-        <h1 class="form-header">Contact</h1>
-        <form @submit.prevent="submitForm" class="base-form">
-          <div class="form-field">
-            <textarea cols="30" rows="10" v-model.trim="message.value"></textarea>
-            <p v-if="!message.isValid" class="validation-info">Why would you sent an empty message?</p>
-          </div>
-          <div class="button-container">
-            <base-button>Send a message</base-button>
-          </div>
-        </form>
-      </base-container>
+      <form @submit.prevent="submitForm" class="base-form">
+        <div class="form-field">
+          <textarea cols="30" rows="10" v-model.trim="message.value" placeholder="Leave a message"></textarea>
+          <p v-if="!message.isValid" class="validation-info">Why would you sent an empty message?</p>
+        </div>
+        <div class="button-container">
+          <base-button>Send a message</base-button>
+        </div>
+      </form>
     </section>
   </div>
 </template>
@@ -45,3 +42,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.base-form {
+  width: 100%;
+}
+</style>

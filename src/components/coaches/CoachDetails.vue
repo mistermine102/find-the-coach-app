@@ -5,14 +5,15 @@
       <div class="badges">
         <base-badge v-for="badge in foundCoach.badges" :mode="badge" :key="badge"></base-badge>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores atque illum deleniti quibusdam, adipisci placeat non numquam quisquam recusandae laudantium repudiandae quam nemo accusamus perspiciatis architecto iste dolores excepturi.</p>
+      <p>{{foundCoach.description}}</p>
       <h3>
         <span>{{ foundCoach.rate }}$</span>/hour
       </h3>
 
       <div class="controls">
-        <base-button @click="$router.push(`/coaches/${foundCoach.id}/contact`)">Contact</base-button>
+        <base-button @click="toggleContact">Contact</base-button>
       </div>
+      <router-view></router-view>
     </base-container>
     <base-container v-else>
       <p>Sorry can't find coach with id of {{ coachId }}</p>
@@ -25,6 +26,7 @@ export default {
   data() {
     return {
       foundCoach: null,
+      contactVisible: false,
     };
   },
   computed: {
@@ -34,10 +36,26 @@ export default {
     coachId() {
       return this.$route.params.id;
     },
+    contactLink() {
+      if (this.contactVisible) {
+        return `/coaches/${this.foundCoach.id}/contact`;
+      } else {
+        return `/coaches/${this.foundCoach.id}`;
+      }
+    },
+  },
+  methods: {
+    toggleContact() {
+      this.contactVisible = !this.contactVisible;
+      this.$router.push(this.contactLink);
+    },
   },
   async created() {
     await this.$store.dispatch("coach/fetchCoaches");
     this.foundCoach = this.allCoaches.find((el) => el.id === this.coachId);
+    if (this.$route.path.includes("contact")) {
+      this.contactVisible = true;
+    }
   },
 };
 </script>
