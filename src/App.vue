@@ -55,7 +55,7 @@ section {
 }
 
 .base-form .validation-info {
-  color: rgb(255, 70, 70);
+  color: rgb(255, 0, 0);
 }
 .base-form .inValid {
   border: 1px solid rgb(255, 0, 0);
