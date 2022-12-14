@@ -1,8 +1,6 @@
 <template>
-  <request-item>
-    <template #:upper-text>
-
-    </template>
+  <request-item v-for="request in requests" :key="request.id"> 
+    {{request}}
   </request-item>
 </template>
 <script>
@@ -13,8 +11,10 @@ export default {
     RequestItem,
   },
   computed: {
-    requests: {}
-  }
+    requests() {
+      return this.$store.getters["request/requests"];
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <requests-received></requests-received>
+    <h1>Requests List</h1>
+    <router-view></router-view>
   </div>
 </template>
 <script>
