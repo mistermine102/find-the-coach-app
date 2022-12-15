@@ -6,12 +6,14 @@ import store from "./stores";
 import BaseContainer from "./components/base/BaseContainer.vue";
 import BaseButton from "./components/base/BaseButton.vue";
 import BaseBadge from "./components/base/BaseBadge.vue";
+import BaseSpinner from "./components/base/BaseSpinner.vue";
 
 const app = createApp(App);
 
 app.component("base-container", BaseContainer);
 app.component("base-button", BaseButton);
 app.component("base-badge", BaseBadge);
+app.component("base-spinner", BaseSpinner);
 
 app.use(router);
 app.use(store);
