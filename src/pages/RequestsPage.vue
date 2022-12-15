@@ -3,8 +3,8 @@
     <section>
       <nav>
         <div class="button-container">
-          <base-button>Received</base-button>
-          <base-button>Sent</base-button>
+          <base-button @click="switchRoute(receivedLink)">Received</base-button>
+          <base-button @click="switchRoute(sentLink)">Sent</base-button>
         </div>
       </nav>
       <base-container>
@@ -20,6 +20,19 @@ import RequestsList from "../components/requests/RequestsList.vue";
 export default {
   components: {
     RequestsList,
+  },
+  computed: {
+    receivedLink() {
+      return "/requests/received";
+    },
+    sentLink() {
+      return "/requests/sent";
+    },
+  },
+  methods: {
+    switchRoute(url) {
+      this.$router.push(url);
+    },
   },
 };
 </script>
