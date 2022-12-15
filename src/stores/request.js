@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default {
   namespaced: true,
   state() {
@@ -11,8 +13,8 @@ export default {
         {
           id: "2",
           message: "Hello world",
-          receiverId: "4"
-        }
+          receiverId: "4",
+        },
       ],
     };
   },
@@ -35,6 +37,13 @@ export default {
   actions: {
     addRequest(context, payload) {
       context.commit("addRequest", payload);
+    },
+    async fetchRequests(context) {
+      const { data } = axios({
+        method: "get",
+        url: "http://localhost:3000",
+      });
+      console.log(data);
     },
   },
 };

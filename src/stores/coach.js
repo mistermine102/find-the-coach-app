@@ -62,7 +62,7 @@ export default {
 
       const { data } = await axios({
         method: "post",
-        url: "http://localhost:3000",
+        url: "http://localhost:3000/coaches",
         headers: {
           "Content-Type": "Application/JSON",
         },
@@ -82,7 +82,7 @@ export default {
     async fetchCoaches(context) {
       const { data } = await axios({
         method: "get",
-        url: "http://localhost:3000",
+        url: "http://localhost:3000/coaches",
       });
 
       context.commit("fetchCoaches", data);

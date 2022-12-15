@@ -11,6 +11,7 @@ const router = createRouter({
   routes: [
     { path: "/", redirect: "/coaches" },
     { path: "/coaches", component: CoachesPage },
+    //children routing so I can display 'coachContact' page on the coach deatils page using router-view
     { path: "/coaches/:id", component: CoachDetailsPage, children: [{ path: "/coaches/:id/contact", component: CoachContact }] },
     { path: "/register", component: CoachRegister },
     { path: "/requests", component: RequestsPage },

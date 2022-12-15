@@ -12,5 +12,8 @@ export default {
     RequestsReceived,
     RequestsSent,
   },
+  created() {
+    this.$store.dispatch("request/fetchRequests")
+  }
 };
 </script>

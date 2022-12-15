@@ -43,6 +43,15 @@ const coaches = [
   },
 ];
 
+const requests = [
+  {
+    id: "1",
+    receiverId: "1",
+    senderId: "3",
+    message: "Dummy request",
+  },
+];
+
 //mongoose
 //  .connect("mongodb://0.0.0.0:27017/find-the-coach-app")
 //  .then(() => {
@@ -53,16 +62,21 @@ const coaches = [
 app.use(cors());
 app.use(json());
 
-app.get("/", async (req, res) => {
+app.get("/coaches", async (req, res) => {
   //const coaches = await Coach.find();
 
   res.header("Content-Type", "Application/JSON");
   res.json(coaches);
 });
 
-app.post("/", (req, res) => {
+app.post("/coaches", (req, res) => {
   coaches.push(req.body);
   res.json("Coach added");
+});
+
+app.get("/requests", (req, res) => {
+  res.header("Content-Type", "Application/JSON");
+  res.json(requests);
 });
 
 app.listen(3000, () => {
