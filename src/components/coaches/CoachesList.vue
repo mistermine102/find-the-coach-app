@@ -2,29 +2,25 @@
   <base-container>
     <div class="controls">
       <base-button mode="alt" @click="fetchCoaches">Refresh</base-button>
-      <base-button v-if="!currentUser" @click="$router.push('/register')"
-        >Register as a couch</base-button
-      >
+      <base-button v-if="!currentUser" @click="$router.push('/register')">Register as a couch</base-button>
     </div>
 
-    <h2 v-if="allCoaches.length <= 0">No coaches found</h2>
+    <div class="button-container">
+      <base-spinner v-if="allCoaches === null"></base-spinner>
+      <base-error v-else-if="allCoaches === false">Something went wrong</base-error>
+      <h2 v-else-if="allCoaches.length <= 0">No coaches found</h2>
+    </div>
 
-    <single-coach
-      v-for="coach in allCoaches"
-      :key="coach.id"
-      :coach="coach"
-    ></single-coach>
+    <single-coach v-for="coach in allCoaches" :key="coach.id" :coach="coach"></single-coach>
   </base-container>
 </template>
 
 <script>
-import BaseButton from "../base/BaseButton.vue";
 import SingleCoach from "./SingleCoach.vue";
 
 export default {
   components: {
     SingleCoach,
-    BaseButton,
   },
   computed: {
     allCoaches() {

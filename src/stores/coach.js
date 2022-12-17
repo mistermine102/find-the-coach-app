@@ -1,10 +1,11 @@
 import axios from "axios";
+import { computed } from "vue";
 
 export default {
   namespaced: true,
   state() {
     return {
-      allCoaches: [],
+      allCoaches: null,
       filters: [],
     };
   },
@@ -80,12 +81,17 @@ export default {
       context.commit("resetFilters");
     },
     async fetchCoaches(context) {
-      const { data } = await axios({
-        method: "get",
-        url: "http://localhost:3000/coaches",
-      });
-
-      context.commit("fetchCoaches", data);
+      context.commit("fetchCoaches", null);
+      try {
+        const { data } = await axios({
+          method: "get",
+          url: "http://localhost:3000/coachess",
+        });
+        context.commit("fetchCoaches", data);
+      } catch (error) {
+        const data = false;
+        context.commit("fetchCoaches", data);
+      }
     },
   },
 };

@@ -13,6 +13,7 @@
     "express": "^4.18.2",
     "mongoose": "^6.7.5",
     "vue": "^3.2.45",
+    "vue-css-loaders": "^0.4.5",
     "vue-router": "^4.1.6",
     "vuex": "^4.1.0"
   },
