@@ -85,7 +85,7 @@ export default {
       try {
         const { data } = await axios({
           method: "get",
-          url: "http://localhost:3000/coachess",
+          url: "http://localhost:3000/coaches",
         });
         context.commit("fetchCoaches", data);
       } catch (error) {

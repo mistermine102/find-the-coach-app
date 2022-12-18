@@ -1,11 +1,24 @@
 <template>
   <section>
-    <base-container v-if="foundCoach">
+    <base-container v-if="allCoaches === null">
+      <div class="button-container"><base-spinner></base-spinner></div>
+    </base-container>
+
+    <base-container v-else-if="allCoaches === false">
+      <div class="button-container">
+        <base-error>Error</base-error>
+      </div>
+    </base-container>
+    <base-container v-else-if="!foundCoach">
+      <p>Sorry can't find coach with id of {{ coachId }}</p>
+    </base-container>
+
+    <base-container v-else>
       <h2>{{ foundCoach.name }}</h2>
       <div class="badges">
         <base-badge v-for="badge in foundCoach.badges" :mode="badge" :key="badge"></base-badge>
       </div>
-      <p>{{foundCoach.description}}</p>
+      <p>{{ foundCoach.description }}</p>
       <h3>
         <span>{{ foundCoach.rate }}$</span>/hour
       </h3>
@@ -14,9 +27,6 @@
         <base-button @click="toggleContact">Contact</base-button>
       </div>
       <router-view></router-view>
-    </base-container>
-    <base-container v-else>
-      <p>Sorry can't find coach with id of {{ coachId }}</p>
     </base-container>
   </section>
 </template>
@@ -51,11 +61,13 @@ export default {
     },
   },
   async created() {
-    await this.$store.dispatch("coach/fetchCoaches");
-    this.foundCoach = this.allCoaches.find((el) => el.id === this.coachId);
-    if (this.$route.path.includes("contact")) {
-      this.contactVisible = true;
-    }
+    try {
+      await this.$store.dispatch("coach/fetchCoaches");
+      this.foundCoach = this.allCoaches.find((el) => el.id === this.coachId);
+      if (this.$route.path.includes("contact")) {
+        this.contactVisible = true;
+      }
+    } catch (error) {}
   },
 };
 </script>
